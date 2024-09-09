@@ -66,6 +66,16 @@ export default function Home() {
         ) : (
           <>
             <section className="space-y-4 ">
+			<div className="text-2xl md:text-4xl font-bold flex justify-center items-center">
+                <h1 className="text-blue-500">
+                  WeatherWise{" "}
+                  <p className="text-black">
+                    {" "}
+                    The best app to find the weather.
+                  </p>
+                </h1>
+              </div>
+              <div className="w-full h-0.5 bg-blue-500"></div>
               <div className="space-y-2">
                 <h2 className="flex gap-1 text-2xl  items-end ">
                   <p>{format(parseISO(firstData?.dt_txt ?? ""), "EEEE")}</p>
@@ -153,7 +163,7 @@ export default function Home() {
             {/* Link to forecast page */}
             <Link
               href="/forecast"
-              className="text-blue-500 hover:text-blue-600"
+              className="text-blue-500 hover:text-blue-600 mb-0.5 font-bold text-xl"
             >
               Forecast of the last 7 days
             </Link>
@@ -161,18 +171,22 @@ export default function Home() {
         )}
         <div className="w-full h-0.5 bg-blue-500"></div>
         <div className="flex justify-center items-center">
-          <h2 className="text-3xl text-blue-500 font-bold mt-2">Contributors</h2>
+          <h2 className="text-3xl text-blue-500 font-bold mt-2">Developers</h2>
         </div>
         <div className="flex justify-center items-center">
           <DevCard
             name={"Gabriel Chacon"}
             rol={"Web Developer"}
             src={"foto-chacon.jpeg"}
+			link={
+				"https://github.com/Chaconsio"
+			}
           />
           <DevCard
             name={"Esteban Canales"}
             rol={"Web Developer"}
             src={"foto-esteban.jpeg"}
+			link={"https://github.com/EstebanCanales"}
           />
         </div>
       </main>

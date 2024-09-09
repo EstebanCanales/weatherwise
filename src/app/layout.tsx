@@ -19,6 +19,9 @@ export default function RootLayout({
   const queryClient = new QueryClient();
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.svg" />
+      </head>
       <QueryClientProvider client={queryClient}>
         <body className={inter.className}>{children}</body>
       </QueryClientProvider>

@@ -83,9 +83,9 @@ export default function Forecast() {
 				</section>
 				<Link
 					href="/"
-					className="text-blue-500 hover:text-blue-600"
+					className="text-blue-500 hover:text-blue-600 mb-4 font-bold text-xl"
 				>
-				Page before 
+				Go Back 
 				</Link>
 			</main>
 		</div>
