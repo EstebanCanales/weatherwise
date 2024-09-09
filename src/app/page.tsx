@@ -66,6 +66,16 @@ export default function Home() {
         ) : (
           <>
             <section className="space-y-4 ">
+			<div className="text-2xl md:text-4xl font-bold flex justify-center items-center">
+                <h1 className="text-blue-500">
+                  WeatherWise{" "}
+                  <p className="text-black">
+                    {" "}
+                    The best app to find the weather.
+                  </p>
+                </h1>
+              </div>
+              <div className="w-full h-0.5 bg-blue-500"></div>
               <div className="space-y-2">
                 <h2 className="flex gap-1 text-2xl  items-end ">
                   <p>{format(parseISO(firstData?.dt_txt ?? ""), "EEEE")}</p>
@@ -153,7 +163,7 @@ export default function Home() {
             {/* Link to forecast page */}
             <Link
               href="/forecast"
-              className="text-blue-500 hover:text-blue-600"
+              className="text-blue-500 hover:text-blue-600 mb-0.5 font-bold text-xl"
             >
               Forecast of the last 7 days
             </Link>

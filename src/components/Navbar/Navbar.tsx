@@ -69,7 +69,7 @@ export default function Navbar({ location }: Props) {
 				<div className="h-[80px]     w-full    flex   justify-between items-center  max-w-7xl px-3 mx-auto">
 					<p className="flex items-center justify-center gap-2  ">
 						<Link href={"/"}>
-							<h2 className="text-2xl text-blue-500">WeatherWise</h2>
+						<img src="/WeatherWise.svg" alt="" className="h-[165px]" />
 						</Link>
 					</p>
 					{/*  */}
