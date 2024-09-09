@@ -44,9 +44,7 @@ export default function Home() {
     return (
       <div className="flex items-center min-h-screen justify-center">
         <div className="flex-col gap-4 w-full flex items-center justify-center">
-          <div className="w-28 h-28 border-8 text-blue-400 text-4xl animate-spin border-gray-300 flex items-center justify-center border-t-blue-400 rounded-full">
-
-          </div>
+          <div className="w-28 h-28 border-8 text-blue-400 text-4xl animate-spin border-gray-300 flex items-center justify-center border-t-blue-400 rounded-full"></div>
         </div>
       </div>
     );
@@ -66,7 +64,7 @@ export default function Home() {
         ) : (
           <>
             <section className="space-y-4 ">
-			<div className="text-2xl md:text-4xl font-bold flex justify-center items-center">
+              <div className="text-2xl md:text-4xl font-bold flex justify-center items-center">
                 <h1 className="text-blue-500">
                   WeatherWise{" "}
                   <p className="text-black">
@@ -173,21 +171,23 @@ export default function Home() {
         <div className="flex justify-center items-center">
           <h2 className="text-3xl text-blue-500 font-bold mt-2">Developers</h2>
         </div>
-        <div className="flex justify-center items-center flex-warp">
-          <DevCard
-            name={"Gabriel Chacon"}
-            rol={"Web Developer"}
-            src={"foto-chacon.jpeg"}
-			link={
-				"https://github.com/Chaconsio"
-			}
-          />
-          <DevCard
-            name={"Esteban Canales"}
-            rol={"Web Developer"}
-            src={"foto-esteban.jpeg"}
-			link={"https://github.com/EstebanCanales"}
-          />
+        <div className="flex flex-wrap justify-center items-center gap-4">
+          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+            <DevCard
+              name={"Gabriel Chacon"}
+              rol={"Web Developer"}
+              src={"foto-chacon.jpeg"}
+              link={"https://github.com/Chaconsio"}
+            />
+          </div>
+          <div className="w-full sm:w-1/2 md:w-1/3">
+            <DevCard
+              name={"Esteban Canales"}
+              rol={"Web Developer"}
+              src={"foto-esteban.jpeg"}
+              link={"https://github.com/EstebanCanales"}
+            />
+          </div>
         </div>
       </main>
     </div>
