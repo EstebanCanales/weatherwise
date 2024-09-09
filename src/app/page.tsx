@@ -173,7 +173,7 @@ export default function Home() {
         <div className="flex justify-center items-center">
           <h2 className="text-3xl text-blue-500 font-bold mt-2">Developers</h2>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center flex-warp">
           <DevCard
             name={"Gabriel Chacon"}
             rol={"Web Developer"}
