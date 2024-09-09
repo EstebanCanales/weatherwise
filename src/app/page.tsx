@@ -8,6 +8,7 @@ import { convertWindSpeed } from "@/utils/convertWindSpeed";
 import { WeatherIcon } from "@/components/WeatherIcon";
 import { loadingCityAtom, placeAtom } from "./atom";
 import { Container } from "@/components/Container";
+import DevCard from '@/components/DevCard/DevCard'
 import { Navbar } from "@/components/Navbar";
 import { format, parseISO } from "date-fns";
 import { WeatherData } from "./types/types";
@@ -154,6 +155,11 @@ export default function Home() {
 						</Link>
 					</>
 				)}
+				<div className="w-full h-0.5 bg-blue-500"></div>
+				<div className="flex justify-center items-center">
+					<DevCard name={"Gabriel Chacon"} rol={"Web Developer"} src={"foto-chacon.jpeg"} />
+					<DevCard name={"Esteban Canales"} rol={"Web Developer"} src={"foto-esteban.jpeg"} />
+				</div>
 			</main>
 		</div>
 	);
