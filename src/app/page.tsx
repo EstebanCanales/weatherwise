@@ -1,58 +1,75 @@
-'use client'
+"use client";
 
-import { convertKelvinToCelsius } from "@/utils/convertKelvinToCelsius"
-import { metersToKilometers } from "@/utils/metersToKilometers"
-import { getDayOrNightIcon } from "@/utils/getDayOrNightIcon"
-import { WeatherDetails } from "@/components/WeatherDetails"
-import { convertWindSpeed } from "@/utils/convertWindSpeed"
-import { WeatherIcon } from "@/components/WeatherIcon"
-import { loadingCityAtom, placeAtom } from "./atom"
-import { Container } from "@/components/Container"
-import DevCard from "@/components/DevCard/DevCard"
-import { Navbar } from "@/components/Navbar"
-import { format, parseISO } from "date-fns"
-import { WeatherData } from "./types/types"
-import { useQuery } from "react-query"
-import { useEffect, useState } from "react"
-import { useAtom } from "jotai"
-import Link from "next/link"
-import axios from "axios"
-import { Sun, Moon, CloudRain, Wind, ChevronLeft, ChevronRight } from 'lucide-react'
+import { convertKelvinToCelsius } from "@/utils/convertKelvinToCelsius";
+import { metersToKilometers } from "@/utils/metersToKilometers";
+import { getDayOrNightIcon } from "@/utils/getDayOrNightIcon";
+import { WeatherDetails } from "@/components/WeatherDetails";
+import { convertWindSpeed } from "@/utils/convertWindSpeed";
+import { WeatherIcon } from "@/components/WeatherIcon";
+import { loadingCityAtom, placeAtom } from "./atom";
+import { Container } from "@/components/Container";
+import DevCard from "@/components/DevCard/DevCard";
+import { Navbar } from "@/components/Navbar";
+import { format, parseISO } from "date-fns";
+import { WeatherData } from "./types/types";
+import { useQuery } from "react-query";
+import { useEffect, useState } from "react";
+import { useAtom } from "jotai";
+import Link from "next/link";
+import axios from "axios";
+import {
+  Sun,
+  Moon,
+  CloudRain,
+  Wind,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
 export default function Home() {
-  const [place, setPlace] = useAtom(placeAtom)
-  const [loadingCity] = useAtom(loadingCityAtom)
+  const [place, setPlace] = useAtom(placeAtom);
+  const [loadingCity] = useAtom(loadingCityAtom);
 
   const { isLoading, error, data, refetch } = useQuery<WeatherData>(
     "repoData",
     async () => {
       const { data } = await axios.get(
         `https://api.openweathermap.org/data/2.5/forecast?q=${place}&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}&cnt=56`
-      )
-      return data
+      );
+      return data;
     }
-  )
+  );
 
   useEffect(() => {
-    refetch()
-  }, [place, refetch])
+    refetch();
+  }, [place, refetch]);
 
-  const firstData = data?.list[0]
+  const firstData = data?.list[0];
 
   const developers = [
-    { name: "Gabriel Chacon", role: "Web Developer", src: "foto-chacon.jpeg", link: "https://github.com/Chaconsio" },
-    { name: "Esteban Canales", role: "Web Developer", src: "foto-esteban.jpeg", link: "https://github.com/EstebanCanales" },
-  ]
+    {
+      name: "Gabriel Chacon",
+      role: "Web Developer",
+      src: "foto-chacon.jpeg",
+      link: "https://github.com/Chaconsio",
+    },
+    {
+      name: "Esteban Canales",
+      role: "Web Developer",
+      src: "foto-esteban.jpeg",
+      link: "https://github.com/EstebanCanales",
+    },
+  ];
 
-  const [currentDev, setCurrentDev] = useState(0)
+  const [currentDev, setCurrentDev] = useState(0);
 
   const nextDev = () => {
-    setCurrentDev((prev) => (prev + 1) % developers.length)
-  }
+    setCurrentDev((prev) => (prev + 1) % developers.length);
+  };
 
   const prevDev = () => {
-    setCurrentDev((prev) => (prev - 1 + developers.length) % developers.length)
-  }
+    setCurrentDev((prev) => (prev - 1 + developers.length) % developers.length);
+  };
 
   if (isLoading)
     return (
@@ -61,14 +78,14 @@ export default function Home() {
           <div className="w-28 h-28 border-8 text-blue-400 text-4xl animate-spin border-gray-300 flex items-center justify-center border-t-blue-400 rounded-full"></div>
         </div>
       </div>
-    )
+    );
 
   if (error)
     return (
       <div className="flex items-center min-h-screen justify-center">
         <p className="text-red-400">{(error as Error).message}</p>
       </div>
-    )
+    );
 
   return (
     <div className="flex flex-col gap-4 bg-gradient-to-br from-blue-100 to-blue-300 min-h-screen">
@@ -103,15 +120,20 @@ export default function Home() {
                     <p className="text-sm space-x-1 whitespace-nowrap">
                       <span>Feels like</span>
                       <span className="font-semibold">
-                        {convertKelvinToCelsius(firstData?.main.feels_like ?? 0)}°
+                        {convertKelvinToCelsius(
+                          firstData?.main.feels_like ?? 0
+                        )}
+                        °
                       </span>
                     </p>
                     <p className="text-sm space-x-2">
                       <span className="text-blue-600">
-                        {convertKelvinToCelsius(firstData?.main.temp_min ?? 0)}°↓
+                        {convertKelvinToCelsius(firstData?.main.temp_min ?? 0)}
+                        °↓
                       </span>
                       <span className="text-red-600">
-                        {convertKelvinToCelsius(firstData?.main.temp_max ?? 0)}°↑
+                        {convertKelvinToCelsius(firstData?.main.temp_max ?? 0)}
+                        °↑
                       </span>
                     </p>
                   </div>
@@ -125,7 +147,10 @@ export default function Home() {
                           {format(parseISO(d.dt_txt), "h:mm a")}
                         </p>
                         <WeatherIcon
-                          iconName={getDayOrNightIcon(d.weather[0].icon, d.dt_txt)}
+                          iconName={getDayOrNightIcon(
+                            d.weather[0].icon,
+                            d.dt_txt
+                          )}
                           className="w-10 h-10"
                         />
                         <p className="text-blue-700">
@@ -151,7 +176,9 @@ export default function Home() {
                 </Container>
                 <Container className="bg-blue-400/30 backdrop-blur-sm rounded-xl shadow-lg px-6 gap-4 justify-between overflow-x-auto">
                   <WeatherDetails
-                    visibility={metersToKilometers(firstData?.visibility ?? 10000)}
+                    visability={metersToKilometers(
+                      firstData?.visibility ?? 10000
+                    )}
                     airPressure={`${firstData?.main.pressure} hPa`}
                     humidity={`${firstData?.main.humidity}%`}
                     sunrise={format(data?.city.sunrise ?? 1702949452, "H:mm")}
@@ -173,11 +200,13 @@ export default function Home() {
         )}
         <div className="w-full h-1 bg-gradient-to-r from-blue-400 to-blue-700 rounded-full shadow-md mt-8"></div>
         <div className="flex justify-center items-center">
-          <h2 className="text-3xl text-blue-700 font-bold mt-6 mb-4 drop-shadow-md">Our Team</h2>
+          <h2 className="text-3xl text-blue-700 font-bold mt-6 mb-4 drop-shadow-md">
+            Our Team
+          </h2>
         </div>
         <div className="flex justify-center items-center">
-          <button 
-            onClick={prevDev} 
+          <button
+            onClick={prevDev}
             className="p-2 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-600 transition-colors duration-200"
             aria-label="Previous developer"
           >
@@ -191,8 +220,8 @@ export default function Home() {
               link={developers[currentDev].link}
             />
           </div>
-          <button 
-            onClick={nextDev} 
+          <button
+            onClick={nextDev}
             className="p-2 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-600 transition-colors duration-200"
             aria-label="Next developer"
           >
@@ -201,7 +230,7 @@ export default function Home() {
         </div>
       </main>
     </div>
-  )
+  );
 }
 
 function WeatherSkeleton() {
@@ -223,5 +252,5 @@ function WeatherSkeleton() {
         </div>
       </div>
     </section>
-  )
+  );
 }
