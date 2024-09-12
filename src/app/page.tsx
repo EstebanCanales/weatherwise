@@ -191,14 +191,14 @@ export default function Home() {
 
             <Link
               href="/forecast"
-              className="text-blue-700 hover:text-blue-800 mb-0.5 font-bold text-xl transition-colors duration-200 flex items-center gap-2"
+              className="text-blue-700 hover:text-blue-800 mt-1 font-bold text-xl transition-colors duration-200 flex items-center gap-2"
             >
               <CloudRain className="w-6 h-6" />
               Forecast of the next 6 days
             </Link>
           </>
         )}
-        <div className="w-full h-1 bg-gradient-to-r from-blue-400 to-blue-700 rounded-full shadow-md mt-8"></div>
+        <div className="w-full h-1 bg-gradient-to-r from-blue-400 to-blue-700 rounded-full shadow-md mt-1"></div>
         <div className="flex justify-center items-center">
           <h2 className="text-3xl text-blue-700 font-bold mt-6 mb-4 drop-shadow-md">
             Our Team
