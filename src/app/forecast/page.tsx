@@ -84,7 +84,7 @@ export default function Forecast() {
 
   if (error)
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 to-blue-300">
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 to-blue-500">
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <p className="text-red-500 text-xl">
             An error occurred: {(error as Error).message}
@@ -101,7 +101,7 @@ export default function Forecast() {
     );
 
   return (
-    <div className="flex flex-col gap-4 bg-gradient-to-br from-blue-100 to-blue-300 min-h-screen">
+    <div className="flex flex-col gap-4 bg-gradient-to-br from-blue-100  to-blue-300 min-h-screen">
       <Navbar location={data?.city.name} />
       <main className="px-3 max-w-7xl mx-auto flex flex-col gap-6 w-full pt-4 pb-8">
         <div className="bg-white rounded-lg shadow-md p-4 sm:p-6">
@@ -165,9 +165,9 @@ export default function Forecast() {
             Daily Forecast
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
-            {firstDataForEachDate.map((d, i) => (
+            {firstDataForEachDate.map((d, index) => (
               <ForecastWeatherDetail
-                key={i}
+                key={index}
                 description={d?.weather[0].description ?? ""}
                 weatehrIcon={d?.weather[0].icon ?? "01d"}
                 date={d ? format(parseISO(d.dt_txt), "dd.MM") : ""}
@@ -193,55 +193,10 @@ export default function Forecast() {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-4 sm:p-6">
-          <h2 className="text-xl sm:text-2xl font-semibold text-blue-700 mb-4">
-            Weather Summary
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-blue-100 p-4 rounded-lg">
-              <Thermometer className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500 mb-2" />
-              <h3 className="font-semibold mb-1 text-sm sm:text-base">
-                Temperature Range
-              </h3>
-              <p className="text-sm sm:text-base">
-                {convertKelvinToCelsius(data?.list[0].main.temp_min ?? 0)}°C -{" "}
-                {convertKelvinToCelsius(data?.list[0].main.temp_max ?? 0)}°C
-              </p>
-            </div>
-            <div className="bg-green-100 p-4 rounded-lg">
-              <Droplets className="w-6 h-6 sm:w-8 sm:h-8 text-green-500 mb-2" />
-              <h3 className="font-semibold mb-1 text-sm sm:text-base">
-                Humidity
-              </h3>
-              <p className="text-sm sm:text-base">
-                {data?.list[0].main.humidity}%
-              </p>
-            </div>
-            <div className="bg-yellow-100 p-4 rounded-lg">
-              <Sun className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-500 mb-2" />
-              <h3 className="font-semibold mb-1 text-sm sm:text-base">
-                Sunrise / Sunset
-              </h3>
-              <p className="text-sm sm:text-base">
-                {format(fromUnixTime(data?.city.sunrise ?? 0), "HH:mm")} /{" "}
-                {format(fromUnixTime(data?.city.sunset ?? 0), "HH:mm")}
-              </p>
-            </div>
-            <div className="bg-gray-100 p-4 rounded-lg">
-              <Wind className="w-6 h-6 sm:w-8 sm:h-8 text-gray-500 mb-2" />
-              <h3 className="font-semibold mb-1 text-sm sm:text-base">
-                Wind Speed
-              </h3>
-              <p className="text-sm sm:text-base">
-                {convertWindSpeed(data?.list[0].wind.speed ?? 1.64)}
-              </p>
-            </div>
-          </div>
-        </div>
 
         <Link
           href="/"
-          className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200 font-semibold text-base sm:text-lg"
+					className="text-blue-700 hover:text-blue-800 font-bold text-xl transition-colors duration-200 flex items-center gap-2"
         >
           <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
           Back to Home

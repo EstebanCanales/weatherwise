@@ -14,7 +14,7 @@ export default function DevCard({ src, rol, name, link }: Props) {
   return (
     <Link href={link} passHref legacyBehavior>
       <a className="block" target="_blank" rel="noopener noreferrer">
-        <div className="group mx-3 mt-3 w-80 h-96 relative bg-slate-50 flex flex-col items-center justify-center gap-2 text-center rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-lg">
+        <div className="group mx-1 mt-3 w-72 md:w-80 h-96 relative bg-slate-50 flex flex-col items-center justify-center gap-2 text-center rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-lg">
           <div className="absolute inset-0 bg-gradient-to-bl from-sky-200 via-blue-200 to-blue-700 transition-all duration-500 group-hover:scale-95 group-hover:rounded-b-2xl" />
           <div className="relative z-10 flex flex-col items-center transition-all duration-500 group-hover:-translate-y-10">
             <div className="w-32 h-32 mt-8 rounded-full border-4 border-slate-50 overflow-hidden transition-all duration-500 group-hover:scale-150 group-hover:-translate-x-24 group-hover:-translate-y-20">
