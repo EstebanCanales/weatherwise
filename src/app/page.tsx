@@ -177,7 +177,7 @@ export default function Home() {
 								</Container>
 								<Container className="bg-white backdrop-blur-sm rounded-xl shadow-sm px-6 gap-4 justify-between overflow-x-auto">
 									<WeatherDetails
-										visability={metersToKilometers(
+										visibility={metersToKilometers(
 											firstData?.visibility ?? 10000
 										)}
 										airPressure={`${firstData?.main.pressure} hPa`}
