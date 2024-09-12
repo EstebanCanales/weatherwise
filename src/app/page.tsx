@@ -246,13 +246,13 @@ export default function Home() {
 					Forecast of the next 6 days
 				</Link>
 
-				<div className="w-full h-1 bg-gradient-to-r from-blue-400 to-blue-700 rounded-full shadow-md mt-1"></div>
+				<div className="w-full h-1 bg-gradient-to-r from-blue-400 to-blue-700 rounded-full shadow-md"></div>
 				<div className="flex justify-center items-center">
 					<h2 className="text-3xl text-blue-700 font-bold mt-6 mb-4 drop-shadow-md">
 						Our Team
 					</h2>
 				</div>
-				<div className="flex justify-center items-center">
+				<div className="flex justify-center items-center mb-6">
 					<button
 						onClick={prevDev}
 						className="p-2 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-600 transition-colors duration-200"
@@ -276,6 +276,7 @@ export default function Home() {
 						<ChevronRight className="w-6 h-6" />
 					</button>
 				</div>
+				<div className="mb-20 w-6 h-6"></div>
 
 			</main>
 		</div>
