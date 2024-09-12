@@ -149,7 +149,7 @@ export default function Home() {
 												</p>
 												<WeatherIcon
 													iconName={getDayOrNightIcon(
-														d.weather[0].icon,
+													d.weather[0].icon,
 														d.dt_txt
 													)}
 													className="w-10 h-10"

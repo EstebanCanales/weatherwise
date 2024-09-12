@@ -18,8 +18,6 @@ import {
   Loader2,
   Thermometer,
   Droplets,
-  Sun,
-  Wind,
 } from "lucide-react";
 import {
   LineChart,
@@ -30,7 +28,6 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { IoSpeedometer } from "react-icons/io5";
 
 export default function Forecast() {
   const [place] = useAtom(placeAtom);
@@ -186,7 +183,7 @@ export default function Forecast() {
                   fromUnixTime(data?.city.sunset ?? 1702517657),
                   "H:mm"
                 )}
-                visability={`${metersToKilometers(d?.visibility ?? 10000)}`}
+                visibility={`${metersToKilometers(d?.visibility ?? 10000)}`}
                 windSpeed={`${convertWindSpeed(d?.wind.speed ?? 1.64)}`}
               />
             ))}
